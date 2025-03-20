@@ -10,7 +10,7 @@ Alert <- R6::R6Class(
   public = list(
     build = function(header, section, color = "#FFAA00") {
       header <- list(type = "header", text = list(type = "plain_text", text = header))
-      section <- list(type = "section", text = list(type = "mrkdwn", text = section))
+      section <- list(type = "section", text = list(type = "mrkdwn", text = substr(section, 1L, 3000L)))
       private$.message <- list(color = color, blocks = list(header, section))
       invisible(self)
     },
